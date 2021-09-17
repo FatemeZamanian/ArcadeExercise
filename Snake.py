@@ -92,23 +92,20 @@ class Game(arcade.Window):
         self.bomb.show()
         arcade.draw_text(text=f'Score: {self.snake.score}',start_x=0 ,start_y=250, width=600, font_size=20, align="center", color=arcade.color.WHITE)
 
-    def eat_apple(self):
-        if arcade.check_for_collision(self.snake, self.apple):
-            return True
-        else:
-            return False
+    # def eat_apple(self):
+    #     return check_for_collision(self.snake,self.apple)
 
-    def eat_pear(self):
-        if arcade.check_for_collision(self.snake, self.pear):
-            return True
-        else:
-            return False
+    # def eat_pear(self):
+    #     if arcade.check_for_collision(self.snake, self.pear):
+    #         return True
+    #     else:
+    #         return False
 
-    def eat_bomb(self):
-        if arcade.check_for_collision(self.snake, self.bomb):
-            return True
-        else:
-            return False
+    # def eat_bomb(self):
+    #     if arcade.check_for_collision(self.snake, self.bomb):
+    #         return True
+    #     else:
+    #         return False
 
     def on_key_release(self, key, modifires):
         if key == arcade.key.UP:
@@ -135,18 +132,16 @@ class Game(arcade.Window):
         self.pear.on_update()
         self.bomb.on_update()
         self.snake.move(delta_time)
-        res_apple=self.eat_apple()
-        if res_apple==True:
+        
+        if check_for_collision(self.snake,self.apple):
             self.apple=Apple()
             self.score+=1
 
-        res_pear=self.eat_pear()
-        if res_pear==True:
+        if check_for_collision(self.snake,self.pear):
             self.pear=Pear()
             self.score+=2
 
-        res_bomb=self.eat_bomb()
-        if res_bomb==True:
+        if check_for_collision(self.snake,self.bomb):
             self.bomb=Bomp()
             self.score -=1
             
