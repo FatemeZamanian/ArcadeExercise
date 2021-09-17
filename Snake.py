@@ -92,20 +92,6 @@ class Game(arcade.Window):
         self.bomb.show()
         arcade.draw_text(text=f'Score: {self.snake.score}',start_x=0 ,start_y=250, width=600, font_size=20, align="center", color=arcade.color.WHITE)
 
-    # def eat_apple(self):
-    #     return check_for_collision(self.snake,self.apple)
-
-    # def eat_pear(self):
-    #     if arcade.check_for_collision(self.snake, self.pear):
-    #         return True
-    #     else:
-    #         return False
-
-    # def eat_bomb(self):
-    #     if arcade.check_for_collision(self.snake, self.bomb):
-    #         return True
-    #     else:
-    #         return False
 
     def on_key_release(self, key, modifires):
         if key == arcade.key.UP:
