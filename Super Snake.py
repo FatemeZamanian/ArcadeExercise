@@ -7,8 +7,8 @@ class Apple(arcade.Sprite):
     def __init__(self):
         arcade.Sprite.__init__(self)
         self.r=10
-        self.center_x=random.randint(40,560)
-        self.center_y=random.randint(40,560)
+        self.center_x=random.randint(40,460)
+        self.center_y=random.randint(40,460)
         self.color=arcade.color.RED
         self.width=20
         self.height=20
@@ -20,8 +20,8 @@ class Pear(arcade.Sprite):
     def __init__(self):
         arcade.Sprite.__init__(self)
         self.r=10
-        self.center_x=random.randint(40,560)
-        self.center_y=random.randint(40,560)
+        self.center_x=random.randint(40,460)
+        self.center_y=random.randint(40,460)
         self.color=arcade.color.YELLOW
         self.height=20
         self.width=20
@@ -32,8 +32,8 @@ class Bomp(arcade.Sprite):
     def __init__(self):
         arcade.Sprite.__init__(self)
         self.r=10
-        self.center_x=random.randint(40,560)
-        self.center_y=random.randint(40,560)
+        self.center_x=random.randint(40,460)
+        self.center_y=random.randint(40,460)
         self.color=arcade.color.WHITE
         self.height=20
         self.width=20
@@ -45,11 +45,11 @@ class Bomp(arcade.Sprite):
 class Snake(arcade.Sprite):
     def __init__(self):
         arcade.Sprite.__init__(self)
-        self.center_x=300
-        self.center_y=300
+        self.center_x=250
+        self.center_y=250
         self.color2=arcade.color.BLUE
         self.color3=arcade.color.YELLOW
-        self.color1=arcade.color.RED
+        self.color1=arcade.color.MAGENTA
         self.x_change=0
         self.y_change=0
         self.width=16
@@ -88,7 +88,7 @@ class Snake(arcade.Sprite):
 
 class Game(arcade.Window):
     def __init__(self):
-        arcade.Window.__init__(self, 600, 600, 'Super Snake')
+        arcade.Window.__init__(self, 500, 500, 'Super Snake')
         arcade.set_background_color(arcade.color.BLACK)
         self.snake=Snake()
         self.apple=Apple()
@@ -99,14 +99,14 @@ class Game(arcade.Window):
         arcade.start_render()
         if self.lose():
             arcade.set_background_color(arcade.color.RED)
-            arcade.draw_text('Game Over', 220, 300, arcade.color.WHITE, 20, 20)
+            arcade.draw_text('Game Over', 160, 250, arcade.color.WHITE, 20, 20)
             time.sleep(5)
             return
         self.snake.show()
         self.apple.show()
         self.pear.show()
         self.bomb.show()
-        arcade.draw_text(text=f'Score: {self.snake.score}',start_x=0,start_y=560,width=600, font_size=20, align="center", color=arcade.color.WHITE)
+        arcade.draw_text(text=f'Score: {self.snake.score}',start_x=0,start_y=460,width=500, font_size=20, align="center", color=arcade.color.WHITE)
 
 
     def on_key_release(self, key, modifiers):
@@ -146,7 +146,7 @@ class Game(arcade.Window):
             
         
     def lose(self):
-        if self.snake.center_x>=590 or self.snake.center_x<=10 or self.snake.center_y>=590 or self.snake.center_y<=10 or self.snake.score<0:
+        if self.snake.center_x>=490 or self.snake.center_x<=10 or self.snake.center_y>=490 or self.snake.center_y<=10 or self.snake.score<0:
             return True
         else:
             return False
